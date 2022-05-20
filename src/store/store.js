@@ -49,6 +49,7 @@ var storeData = {
     },
   ],
   posts: [{ id: 1, title: 'Dummy Post !' }],
+  cartItems: [],
 };
 
 export var store = createStore(rootReducer, storeData);

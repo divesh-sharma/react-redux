@@ -1,12 +1,13 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
-import { IncrementLikes } from '../actions/actionCreators';
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { AddCourseToCart, IncrementLikes } from "../actions/actionCreators";
 function Course(props) {
   var dispatch = useDispatch();
+  const [isDisabled, setisDisabled] = useState(false);
   var ratings = [];
   for (let index = 0; index < props.coursedetails.rating; index++) {
     ratings.push(
-      <span style={{ color: 'orange' }} key={index}>
+      <span style={{ color: "orange" }} key={index}>
         <i className="fa-solid fa-star"></i>
       </span>
     );
@@ -33,12 +34,22 @@ function Course(props) {
             onClick={() => dispatch(IncrementLikes(props.coursedetails.id))}
           >
             {/* {this.props.coursedetails.likes}{" "} */}
-            {props.coursedetails.likes}{' '}
+            {props.coursedetails.likes}{" "}
             <i className="fa-solid fa-thumbs-up"></i>
           </button>
 
           <button className="btn btn-danger mx-1">
             <i className="fa-solid fa-trash-can"></i>
+          </button>
+          <button
+            className="btn btn-success"
+            onClick={() => {
+              setisDisabled(true);
+              dispatch(AddCourseToCart(props.coursedetails));
+            }}
+            disabled={isDisabled}
+          >
+            Add to Cart <i class="fa-solid fa-cart-plus"></i>
           </button>
         </div>
       </div>

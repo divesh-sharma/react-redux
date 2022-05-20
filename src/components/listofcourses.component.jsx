@@ -1,6 +1,7 @@
-import React from "react";
-import Course from "./course.component";
-import { useSelector, useDispatch } from "react-redux";
+import React from 'react';
+import Course from './course.component';
+import { useSelector, useDispatch } from 'react-redux';
+import CurrentItemsInCart from './currentitemsincart.component';
 
 function ListOfCourses() {
   const { courses } = useSelector((store) => store);
@@ -9,8 +10,9 @@ function ListOfCourses() {
   ));
   return (
     <>
-      <header>
+      <header style={{ display: 'flex', justifyContent: 'space-between' }}>
         <h1> List Of Courses</h1>
+        <CurrentItemsInCart />
       </header>
       <main>
         <div className="row">{coursesToBeCreated}</div>

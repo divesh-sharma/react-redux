@@ -1,6 +1,7 @@
-import ListOfCourses from "./listofcourses.component";
-import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
-import Posts from "./posts.component";
+import ListOfCourses from './listofcourses.component';
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
+import Posts from './posts.component';
+import React from 'react';
 
 function App(props) {
   // console.log(props);
